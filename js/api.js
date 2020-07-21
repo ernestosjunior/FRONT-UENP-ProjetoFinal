@@ -1,7 +1,7 @@
-const url_padrao = 'http://127.0.0.1:8000',
+const url_padrao = 'http://127.0.0.1:8000/api/',
 
 
-function registrarUsuario(){
+registrarUsuario = () =>{
     //Faz a leitura dos inputs
     let nome = document.getElementById("first_name").value;
     let sobrenome = document.getElementById("last_name").value;
@@ -13,16 +13,17 @@ function registrarUsuario(){
         "name" : nome,        
         "sobrenome" : sobrenome,
         "email": email,
-        "senha":senha
+        "password":senha
     }
 
-    fetch('http://127.0.0.1:8000/api/registrarusuario',
-     {    method: 'post',
-          headers: new Headers({
+    fetch('http://localhost:8000/api/registrarusuario',
+     {  method: 'post',
+        mode: 'no-cors',
+        headers: new Headers({
          'Content-Type': 'application/json',
          'Accept': 'application/json'
          }),
-         body: JSON.stringify(object) //Adiciona o Json no Body
+        body: JSON.stringify(object) //Adiciona o Json no Body
      })
      //recebe a resposta do fetch e verifica se foi efetivado
      .then((response) => {
