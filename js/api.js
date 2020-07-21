@@ -15,7 +15,7 @@ registrarUsuario = () =>{
         "email": email,
         "password":senha
     }
-
+    
     fetch('http://localhost:8000/api/registrarusuario',
      {  method: 'post',
         mode: 'no-cors',//////////////////////////////
@@ -38,6 +38,40 @@ registrarUsuario = () =>{
     })
  }
 
- 
+ registrarPessoa = () =>{
+    //Faz a leitura dos inputs
+    let nome = document.getElementById("name").value;
+    let sobrenome = document.getElementById("sobrenome").value;
+    let cpfcnpj = document.getElementById("cpfcnpj").value;
+    let sexo = document.getElementById("sexo").value;
+
+    //Cria o Json
+    var object = {
+        "name" : nome,        
+        "sobrenome" : sobrenome,
+        "cpfcnpj": cpfcnpj,
+        "sexo": sexo
+    };
+    
+    fetch(url_padrao + 'cadastrarpessoa',
+     {  method: 'post',
+        headers: new Headers({
+         'Content-Type': 'application/json',
+         'Accept': 'application/json'
+         }),
+        body: JSON.stringify(object) //Adiciona o Json no Body
+     })
+     //recebe a resposta do fetch e verifica se foi efetivado
+     .then((response) => {
+        if(response.ok ){
+          alert("Registro criado com sucesso!");
+          window.location.href = "index.html";
+        }
+    })
+    //Tratamento de Erro
+    .catch(function(erro){
+        alert("Erro ao criar o registro: " + erro);
+    })
+ }
 
   
