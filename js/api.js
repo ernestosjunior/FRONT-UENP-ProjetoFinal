@@ -18,7 +18,7 @@ registrarUsuario = () =>{
 
     fetch('http://localhost:8000/api/registrarusuario',
      {  method: 'post',
-        mode: 'no-cors',
+        mode: 'no-cors',//////////////////////////////
         headers: new Headers({
          'Content-Type': 'application/json',
          'Accept': 'application/json'
