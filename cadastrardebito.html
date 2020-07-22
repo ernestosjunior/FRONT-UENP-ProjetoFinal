@@ -44,45 +44,37 @@
     </nav>
   </header>
   <body>
-    
     <div class="row">
-      <form class="col s12" >
+        <form class="col s12" >
+          <div class="input-field col s6">
+            <input id="id_people" type="text" class="validate">
+          <label for="id_people">ID</label>
+        </div>
         <div class="input-field col s6">
-          <input id="name" type="text" class="validate">
-        <label for="name">Nome</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="sobrenome" type="text" class="validate">
-          <label for="sobrenome">Sobrenome</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
           <input id="cpfcnpj" type="text" class="validate">
-          <label for="text">CPF/CNPJ</label>
-
+            <label for="cpfcnpj">CPF/CNPJ</label>
+          </div>
+        <div class="input-field col s6">
+          <input id="credor" type="text" class="validate">
+            <label for="credor">Credor</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="valor" type="text" class="validate">
+          <label for="valor">Valor</label>
         </div>
-      </div>
-    </div>
-      <label>Sexo</label>
-      <select id="sexo" class="browser-default">
-          <option value="" disabled selected>Selecione</option>
-          <option value="Feminino">Feminino</option>
-          <option value="Masculino">Masculino</option>
-      </select><br>
-      <div><br>
+        <label>Status</label>
+        <select id="status" class="browser-default">
+            <option value="" disabled selected>Selecione</option>
+            <option value="1">Ativo</option>
+            <option value="0">Inativo</option>
+        </select><br>
         <div>
-        <a class="btn waves-effect waves-light col s8 push-s2" type="submit" onclick="registrarPessoa()">CADASTRAR
-            <i class="material-icons right">send</i>
-        </a>
+            <a class="btn waves-effect waves-light col s8 push-s2" type="submit" onclick="cadastrarDebito()">CADASTRAR
+                <i class="material-icons right">send</i>
+            </a>
+            </div>
+          </form>
         </div>
-      </div>
-    </div>
-  </div>
-    </form>
-  </div>
-
-
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>

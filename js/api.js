@@ -106,4 +106,40 @@ registrarUsuario = () => {
     })
  }
 
-  
+ cadastrarDebito = () =>{
+    //Faz a leitura dos inputs
+    let idPeople = document.getElementById("id_people").value;
+    let cpfcnpj = document.getElementById("cpfcnpj").value;
+    let credor = document.getElementById("credor").value;
+    let valor = document.getElementById("valor").value;
+    let status = document.getElementById("status").value;
+
+    //Cria o Json
+    var object = {
+        "id_people" : idPeople,        
+        "cpfcnpj" : cpfcnpj,
+        "credor": credor,
+        "valor": valor,
+        "status": status
+    };
+    
+    fetch(url_padrao + 'cadastrardebito',
+     {  method: 'post',
+        headers: new Headers({
+         'Content-Type': 'application/json',
+         'Accept': 'application/json'
+         }),
+        body: JSON.stringify(object) //Adiciona o Json no Body
+     })
+     //recebe a resposta do fetch e verifica se foi efetivado
+     .then((response) => {
+        if(response.ok ){
+          alert("Registro criado com sucesso!");
+          window.location.href = "index.html";
+        }
+    })
+    //Tratamento de Erro
+    .catch(function(erro){
+        alert("Erro ao criar o registro: " + erro);
+    })
+ };
