@@ -18,7 +18,6 @@ registrarUsuario = () => {
     
     fetch(url_padrao + 'registrar',
      {  method: 'post',
-        mode: 'no-cors',//////////////////////////////
         headers: new Headers({
          'Content-Type': 'application/json',
          'Accept': 'application/json'
@@ -97,7 +96,7 @@ registrarUsuario = () => {
      .then((response) => {
         if(response.ok ){
           alert("Login efetuado!");
-          window.location.href = "cadastrarpessoa.html";
+          window.location.href = "index.html";
         }
     })
     //Tratamento de Erro
@@ -143,3 +142,34 @@ registrarUsuario = () => {
         alert("Erro ao criar o registro: " + erro);
     })
  };
+ 
+consultarPessoa = () =>{     
+
+    let c = document.getElementById("cpfcnpj").value;
+
+    fetch(url_padrao + 'consultarpessoa/' + c,
+      {    method: 'get',
+           headers: new Headers({
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+          }),
+      })
+      //Verifica o retorno do servidor
+      .then(response => {
+          if(!response.ok){
+              throw Error("Erro");    
+          }
+          return response.json();
+      })
+      //Preeche os dados do aluno nos inputs
+      .then(data => {
+          console.log(data);
+          document.querySelector('#id').append(data.id);
+          document.querySelector('#nomeSobrenome').append(data.name, data.sobrenome);
+          document.querySelector('#sexo').append(data.sexo);
+      })
+      //trata exceções
+      .catch(function(erro){
+          alert("Erro: " + erro);
+      });
+  };

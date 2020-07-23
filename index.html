@@ -44,6 +44,39 @@
   </nav>
 </header>
 <body>
+  <div class="row">
+    <form class="col s12" >
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="cpfcnpj" type="text" class="validate">
+        <label for="text">CPF/CNPJ</label>
+      </div>
+        </div>
+      <div>
+      <a class="btn waves-effect waves-light col s8 push-s2" type="submit" onclick="consultarPessoa()">BUSCAR
+          <i class="material-icons right">search</i>
+      </a>
+      </div>
+    </div>
+  </div>
+</div>
+  </form>
+</div>
+  <div>
+    <table>
+      <thead>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sexo</th>
+      </thead>
+      <tbody>
+        <td id="id"></td>
+        <td id="nomeSobrenome"></td>
+        <td id="sexo"></td>
+      </tbody>
+    </table>
+    
+  </div>
   
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
